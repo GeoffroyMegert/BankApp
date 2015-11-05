@@ -8,17 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <form method="POST" action="">
-            <label>
-                #{bundle.FirstName}
-                <input type="text" name="firstname" required="true"/>
-            </label><br/>
-            <label>
-                #{bundle.LastName}
-                <input type="text" name="lastname" required="true"/>
-            </label>
+        <h1>#{bundle.CreateCustomerTitle}</h1>
+        <h:form>
+            <h:outputLabel for="firstname" value="#{bundle.FirstName}"/>
+            <h:inputText id="firstname" required="true"/>
             <br/>
-            <input type="submit" name="submit" value="Creer"/>
-        </form>
+            <h:outputLabel for="lastname" value="#{bundle.LastName}"/>
+            <h:inputText id="lastname" required="true"/>
+            <br/>
+            <h:commandButton type="submit" id="submit" value="Creer"/>
+        </h:form>
     </h:body>
 </html>
