@@ -12,56 +12,7 @@ public class Account {
     private String name;
     private double balance = 0;
     private double rate = 0.001;
-
-    public String getNumber() {
-        return this.number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getBalance() {
-        return this.balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public double getRate() {
-        return this.rate;
-    }
-
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
     
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.customer.getFirstName());
-        sb.append(" ");
-        sb.append(this.customer.getLastName());
-        sb.append(";");
-        sb.append(this.number);
-        sb.append(";");
-        sb.append(this.name);
-        sb.append(";");
-        sb.append(this.balance);
-        sb.append(";");
-        sb.append(this.rate);
-        return sb.toString();
-    }
-
     /**
      * Constructeur paramétré pour les comptes.
      *
@@ -114,6 +65,55 @@ public class Account {
     public static void transfer(final double amount, final Account source, final Account target) {
         source.debit(amount);
         target.credit(amount);
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getBalance() {
+        return this.balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public double getRate() {
+        return this.rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.customer.getFirstName());
+        sb.append(" ");
+        sb.append(this.customer.getLastName());
+        sb.append(";");
+        sb.append(this.number);
+        sb.append(";");
+        sb.append(this.name);
+        sb.append(";");
+        sb.append(this.balance);
+        sb.append(";");
+        sb.append(this.rate);
+        return sb.toString();
     }
 
 }

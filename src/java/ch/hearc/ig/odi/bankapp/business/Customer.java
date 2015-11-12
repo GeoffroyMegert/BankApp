@@ -9,11 +9,46 @@ import java.util.*;
  */
 public class Customer {
 
-    private Collection<Account> accounts;
+    private Map<String, Account> accounts;
     private int number;
     private String firstName;
     private String lastName;
 
+    /**
+     * Constructeur paramétré pour les clients.
+     *
+     * @param number Le numéro du client.
+     * @param firstName Le prénom du client.
+     * @param lastName Le nom du client.
+     */
+    public Customer(final Integer number, final String firstName, final String lastName) {
+        this.number = number;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.accounts = new HashMap<>();
+    }
+
+    /**
+     * Retourne le compte possédant le numéro passé en paramètre.
+     *
+     * @param number Le numéro du compte désiré.
+     * @return Le compte recherché ou null s'il n'existe pas.
+     */
+    public Account getAccountByNumber(final String number) {
+        return this.accounts.get(number);
+    }
+
+    /**
+     * Ajoute un compte à la liste des comptes du client.
+     *
+     * @param number Le numéro du compte.
+     * @param name Le nom du compte.
+     * @param rate Le taux d'intérêt du compte.
+     */
+    public void addAccount(final String number, final String name, final double rate) {
+        this.accounts.put(number, new Account(number, name, rate, this));
+    }
+    
     public int getNumber() {
         return this.number;
     }
@@ -51,48 +86,4 @@ public class Customer {
         return sb.toString();
     }
     
-    /**
-     * Constructeur paramétré pour les clients.
-     *
-     * @param number Le numéro du client.
-     * @param firstName Le prénom du client.
-     * @param lastName Le nom du client.
-     */
-    public Customer(final Integer number, final String firstName, final String lastName) {
-        this.number = number;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.accounts = new ArrayList();
-    }
-
-    /**
-     * Retourne le compte possédant le numéro passé en paramètre.
-     *
-     * @param number Le numéro du compte désiré.
-     * @return Le compte recherché ou null s'il n'existe pas.
-     */
-    public Account getAccountByNumber(final String number) {
-        Account account = null;
-        
-        for (Account acc : this.accounts) {
-            if (acc.getNumber().equals(number)) {
-                account = acc;
-                break;
-            }
-        }
-        
-        return account;
-    }
-
-    /**
-     * Ajoute un compte à la liste des comptes du client.
-     *
-     * @param number Le numéro du compte.
-     * @param name Le nom du compte.
-     * @param rate Le taux d'intérêt du compte.
-     */
-    public void addAccount(final String number, final String name, final double rate) {
-        this.accounts.add(new Account(number, name, rate, this));
-    }
-
 }

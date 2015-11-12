@@ -1,15 +1,87 @@
 package ch.hearc.ig.odi.bankapp.business;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Bank {
 
     private int number;
     private String name;
-    private Collection<Customer> customers;
-    private Collection<Account> accounts;
+    private Map<Integer, Customer> customers;
+    private Map<String, Account> accounts;
 
+    /**
+     * Constructeur paramétré pour les banques.
+     *
+     * @param number Le numero de la banque.
+     * @param name Le nom de la banque.
+     */
+    public Bank(final int number, final String name) {
+        this.number = number;
+        this.name = name;
+        this.customers = new HashMap<>();
+        this.accounts = new HashMap<>();
+    }
+
+    /**
+     * Cherche le compte ayant le numero donné.
+     *
+     * @param number Le numero du compte désiré.
+     * @return Le compte recherché ou null s'il n'existe pas.
+     */
+    public Account getAccountByNumber(final String number) {
+        return this.accounts.get(number);
+    }
+
+    /**
+     * Recherche le client ayant le numero donné.
+     * 
+     * @param number Le numero du client désiré.
+     * @return Le client recherché ou null s'il n'existe pas.
+     */
+    public Customer getCustomerByNumber(final int number) {
+        return this.customers.get(number);
+    }
+    
+    /**
+     * Envoie la liste des clients de la banque.
+     * 
+     * @return La liste des clients de la banque.
+     */
+    public Map<Integer, Customer> getCustomers() {
+        return this.customers;
+    }
+
+    /**
+     * Ajoute un client à la banque.
+     * 
+     * @param number Le numero du nouveau client.
+     * @param firstName Le prénom du nouveau client.
+     * @param lastName Le nom du nouveau du client.
+     */
+    public Customer addCustomer(final int number, final String firstName, final String lastName) {
+        Customer customer = new Customer(number, firstName, lastName);
+        this.customers.put(number, customer);
+        return customer;
+    }
+
+    /**
+     * Ajoute un compte à la banque.
+     * 
+     * @param number Le numero du nouveau compte.
+     * @param name Le nom du nouveau compte.
+     * @param rate Le taux du nouveau compte.
+     * @param customer Le possesseur du compte.
+     */
+    public void addAccount(final String number, final String name, final double rate, final Customer customer) {
+        if(getCustomerByNumber(customer.getNumber()) == null) {
+            throw new IllegalArgumentException("Le client n'est pas enregistré au près de la banque.");
+        }
+        
+        this.accounts.put(number, new Account(number, name, rate, customer));
+    }
+    
     public int getNumber() {
         return this.number;
     }
@@ -26,97 +98,19 @@ public class Bank {
         this.name = name;
     }
 
-    /**
-     * Constructeur paramétré pour les banques.
-     *
-     * @param number Le numero de la banque.
-     * @param name Le nom de la banque.
-     */
-    public Bank(final int number, final String name) {
-        this.number = number;
-        this.name = name;
-        this.customers = new ArrayList<>();
-        this.accounts = new ArrayList<>();
-    }
-
-    /**
-     * Cherche le compte ayant le numero donné.
-     *
-     * @param number Le numero du compte désiré.
-     * @return Le compte recherché ou null s'il n'existe pas.
-     */
-    public Account getAccountByNumber(final String number) {
-        Account account = null;
-
-        for (Account acc : accounts) {
-            if (acc.getNumber().equals(number)) {
-                account = acc;
-                break;
-            }
-        }
-
-        return account;
-    }
-
-    /**
-     * Recherche le client ayant le numero donné.
-     * 
-     * @param number Le numero du client désiré.
-     * @return Le client recherché ou null s'il n'existe pas.
-     */
-    public Customer getCustomerByNumber(final int number) {
-        Customer customer = null;
-
-        for (Customer cust : customers) {
-            if (cust.getNumber() == number) {
-                customer = cust;
-                break;
-            }
-        }
-
-        return customer;
-    }
-
-    /**
-     * Ajoute un client à la banque.
-     * 
-     * @param number Le numero du nouveau client.
-     * @param firstName Le prénom du nouveau client.
-     * @param lastName Le nom du nouveau du client.
-     */
-    public void addCustomer(final int number, final String firstName, final String lastName) {
-        customers.add(new Customer(number, firstName, lastName));
-    }
-
-    /**
-     * Ajoute un compte à la banque.
-     * 
-     * @param number Le numero du nouveau compte.
-     * @param name Le nom du nouveau compte.
-     * @param rate Le taux du nouveau compte.
-     * @param customer Le possesseur du compte.
-     */
-    public void addAccount(final String number, final String name, final double rate, final Customer customer) {
-        if(getCustomerByNumber(customer.getNumber()) == null) {
-            throw new IllegalArgumentException("Le client n'est pas enregistré au près de la banque.");
-        }
-        
-        accounts.add(new Account(number, name, rate, customer));
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.number);
         sb.append(";");
         sb.append(this.name);
-        for(Customer cust : customers) {
+        for(Iterator cust = customers.values().iterator(); cust.hasNext();) {
             sb.append(";");
-            sb.append(cust.toString());
+            sb.append(((Customer)cust.next()).toString());
         }
-        for(Account acc : accounts) {
+        for(Iterator acc = accounts.values().iterator(); acc.hasNext();) {
             sb.append(";");
-            sb.append(acc.toString());
+            sb.append(((Account)acc.next()).toString());
         }
         return sb.toString();
     }

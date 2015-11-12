@@ -4,19 +4,27 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>#{bundle.CreateCustomerTitle}</title>
+        <title><h:outputText value="#{bundle.CreateCustomerTitle}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="styles/style.css"/>
     </h:head>
     <h:body>
-        <h1>#{bundle.CreateCustomerTitle}</h1>
-        <h:form>
-            <h:outputLabel for="firstname" value="#{bundle.FirstName}"/>
-            <h:inputText id="firstname" required="true"/>
+        <h1><h:outputText value="#{bundle.CreateCustomerTitle}"/></h1>
+        <h:form id="createCustomer">
+            <h:outputLabel for="id" value="#{bundle.Id} : "/>
+            <h:inputText id="id" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
             <br/>
-            <h:outputLabel for="lastname" value="#{bundle.LastName}"/>
-            <h:inputText id="lastname" required="true"/>
+            <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
+            <h:inputText id="firstname" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
             <br/>
-            <h:commandButton type="submit" id="submit" value="Creer"/>
+            <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
+            <h:inputText id="lastname" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
+            <br/>
+            <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
+            <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{CustomerCreateBean.submit()}"/>
+            <br/>
+            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="faces/customersList.xhtml"/>
+            <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
         </h:form>
     </h:body>
 </html>
