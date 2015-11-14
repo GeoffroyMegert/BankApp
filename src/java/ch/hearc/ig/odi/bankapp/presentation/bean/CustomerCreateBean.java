@@ -23,5 +23,7 @@ public class CustomerCreateBean implements Serializable {
         String lastName = request.getParameter("createCustomer:lastname");
         
         new Services().saveCustomer(id, firstName, lastName);
+        
+        request.getRequestDispatcher("faces/createCustomerOk.xhtml");
     }
 }

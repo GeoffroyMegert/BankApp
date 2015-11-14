@@ -22,8 +22,8 @@
             <br/>
             <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
             <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{CustomerCreateBean.submit()}"/>
-            <br/>
-            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="faces/customersList.xhtml"/>
+            <br/><br/>
+            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="faces/customersList.xhtml" immediate="true"/>
             <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
         </h:form>
     </h:body>
