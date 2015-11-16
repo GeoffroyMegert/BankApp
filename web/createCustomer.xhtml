@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="#{localeBean.language}"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title><h:outputText value="#{bundle.CreateCustomerTitle}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,13 +13,13 @@
         <h1><h:outputText value="#{bundle.CreateCustomerTitle}"/></h1>
         <h:form id="createCustomer">
             <h:outputLabel for="id" value="#{bundle.Id} : "/>
-            <h:inputText id="id" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
+            <h:inputText id="id" value="#{CustomerCreateBean.id}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
             <br/>
             <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
-            <h:inputText id="firstname" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
+            <h:inputText id="firstname" value="#{CustomerCreateBean.firstName}" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
             <br/>
             <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
-            <h:inputText id="lastname" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
+            <h:inputText id="lastname" value="#{CustomerCreateBean.lastName}" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
             <br/>
             <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
             <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{CustomerCreateBean.submit()}"/>

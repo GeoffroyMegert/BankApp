@@ -11,6 +11,8 @@
         <h1><h:outputText value="#{bundle.Success}"/></h1>
         <h:outputText value="#{bundle.CustomerMessage}"/>
         <br/><br/>
-        <h:commandLink value="#{bundle.ReturnHome}" action="faces/customersList.xhtml"/>
+        <h:form>
+            <h:commandLink value="#{bundle.ReturnHome}" action="faces/customersList.xhtml"/>
+        </h:form>
     </h:body>
 </html>

@@ -3,7 +3,6 @@ package ch.hearc.ig.odi.bankapp.presentation.bean;
 import ch.hearc.ig.odi.bankapp.business.Customer;
 import ch.hearc.ig.odi.bankapp.services.Services;
 import java.io.Serializable;
-import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
