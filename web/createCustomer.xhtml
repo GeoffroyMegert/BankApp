@@ -7,7 +7,7 @@
     <h:head>
         <title><h:outputText value="#{bundle.CreateCustomerTitle}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+        <link rel="stylesheet" type="text/css" href="ressources/css/style.css"/>
     </h:head>
     <h:body>
         <h1><h:outputText value="#{bundle.CreateCustomerTitle}"/></h1>
@@ -24,7 +24,7 @@
             <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
             <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{CustomerCreateBean.submit()}"/>
             <br/><br/>
-            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="faces/customersList.xhtml" immediate="true"/>
+            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="cancel" immediate="true"/>
             <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
         </h:form>
     </h:body>

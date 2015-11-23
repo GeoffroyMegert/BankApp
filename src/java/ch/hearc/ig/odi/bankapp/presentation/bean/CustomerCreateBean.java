@@ -19,7 +19,7 @@ public class CustomerCreateBean implements Serializable {
     private String firstName;
     private String lastName;
     
-    public void submit() {
+    public String submit() {
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
         
 //        int id = Integer.valueOf(request.getParameter("createCustomer:id"));
@@ -28,7 +28,7 @@ public class CustomerCreateBean implements Serializable {
         
         new Services().saveCustomer(id, firstName, lastName);
         
-        request.getRequestDispatcher("faces/createCustomerOk.xhtml");
+        return "success";
     }
 
     public int getId() {
