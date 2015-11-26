@@ -40,6 +40,9 @@
                     <f:facet name="header"><h:outputText value="#{bundle.Rate}"/></f:facet>
                         #{acc.rate}
                 </h:column>
+                <h:column>
+                    <h:commandLink value="#{bundle.Show}" action="#{AccountDetailBean.getAccount(CustomerDetailBean.customer.number, acc.number)}"/>
+                </h:column>
             </h:dataTable>
             <br/>
             <h:commandButton id="Return" value="#{bundle.ReturnHome}" action="return"/>
