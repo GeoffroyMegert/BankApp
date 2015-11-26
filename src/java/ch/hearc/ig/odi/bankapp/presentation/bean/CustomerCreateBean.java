@@ -2,31 +2,29 @@ package ch.hearc.ig.odi.bankapp.presentation.bean;
 
 import ch.hearc.ig.odi.bankapp.services.Services;
 import java.io.Serializable;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  *
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
 @Named("CustomerCreateBean")
-@RequestScoped
+@SessionScoped
 public class CustomerCreateBean implements Serializable {
     
     private int id;
     private String firstName;
     private String lastName;
     
+    @Inject
+    Services services;
+    
     public String submit() {
-        HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        
-//        int id = Integer.valueOf(request.getParameter("createCustomer:id"));
-//        String firstName = request.getParameter("createCustomer:firstname");
-//        String lastName = request.getParameter("createCustomer:lastname");
-        
-        new Services().saveCustomer(id, firstName, lastName);
+        System.out.println(services.getCustomersList().size());
+        services.saveCustomer(id, firstName, lastName);
+        System.out.println(services.getCustomersList().size());
         
         return "success";
     }
