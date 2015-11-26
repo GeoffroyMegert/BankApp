@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="#{localeBean.language}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><h:outputText value="#{bundle.AccountDetail}"/></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="#{bundle.AccountDetail}"/></h1>
+        
+        <h:form>
+            <h:outputLabel for="id" value="#{bundle.Id} : "/>
+            <h:outputText id="id" value="#{AccountDetailBean.id}"/>
+            <h:outputLabel for="label" value="#{bundle.Label} : "/>
+            <h:outputText id="label" value="#{AccountDetailBean.label}"/>
+            <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
+            <h:outputText id="balance" value="#{AccountDetailBean.balance}"/>
+            <h:outputLabel for="rate" value="#{bundle.Rate}"/>
+            <h:outputText id="rate" value="#{AccountDetailBean.rate}"/>
+            <br/>
+            <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action=""/><br/>
+            <h:commandButton id="returnHome" value="#{bundle.ReturnHome}" action=""/>
+        </h:form>
+    </h:body>
+</html>
