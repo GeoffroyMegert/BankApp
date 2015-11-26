@@ -17,29 +17,29 @@
         </locale-config>
     </application>
     <navigation-rule>
-        <from-view-id>faces/customersList.xhtml</from-view-id>
+        <from-view-id>/customersList.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>createCustomer</from-outcome>
-            <to-view-id>faces/createCustomer.xhtml</to-view-id>
+            <to-view-id>/createCustomer.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>faces/createCustomer.xhtml</from-view-id>
+        <from-view-id>/createCustomer.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{CustomerCreateBean.submit()}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>faces/createCustomerOk.xhtml</to-view-id>
+            <to-view-id>/createCustomerOk.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>cancel</from-outcome>
-            <to-view-id>faces/customersList.xhtml</to-view-id>
+            <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>faces/createCustomerOk.xhtml</from-view-id>
+        <from-view-id>/createCustomerOk.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>return</from-outcome>
-            <to-view-id>faces/customersList.xhtml</to-view-id>
+            <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
