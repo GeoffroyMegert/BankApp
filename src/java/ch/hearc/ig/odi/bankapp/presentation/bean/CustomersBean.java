@@ -20,7 +20,7 @@ public class CustomersBean implements Serializable {
     private DataModel<Customer> customers;
     
     @Inject
-    Services services;
+    private Services services;
     
     public DataModel<Customer> getCustomers() {
         customers = new ListDataModel<>();

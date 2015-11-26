@@ -19,7 +19,7 @@ public class CustomerCreateBean implements Serializable {
     private String lastName;
     
     @Inject
-    Services services;
+    private Services services;
     
     public String submit() {
         System.out.println(services.getCustomersList().size());
