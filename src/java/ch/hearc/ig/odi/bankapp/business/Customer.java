@@ -37,6 +37,10 @@ public class Customer {
     public Account getAccountByNumber(final String number) {
         return this.accounts.get(number);
     }
+    
+    public List<Account> getAccounts() {
+        return new ArrayList<>(this.accounts.values());
+    }
 
     /**
      * Ajoute un compte à la liste des comptes du client.
