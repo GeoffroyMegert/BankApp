@@ -5,7 +5,11 @@
  */
 package ch.hearc.ig.odi.bankapp.presentation.bean;
 
+import ch.hearc.ig.odi.bankapp.business.Account;
+import ch.hearc.ig.odi.bankapp.business.Customer;
+import ch.hearc.ig.odi.bankapp.services.Services;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -16,41 +20,24 @@ import javax.inject.Named;
 @RequestScoped
 public class AccountDetailBean {
     
-    private int id;
-    private String label;
-    private double balance;
-    private double rate;
+    private Account account;
+    
+    @Inject
+    private Services services;
 
-    public int getId() {
-        return id;
+    public String getAccount(final int customerId, final String accountId) {
+        Customer customer = services.getCustomer(customerId);
+        account = customer.getAccountByNumber(accountId);
+        
+        return "success";
+    } 
+    
+    public Account getAccount() {
+        return account;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public double getRate() {
-        return rate;
-    }
-
-    public void setRate(double rate) {
-        this.rate = rate;
+    public void setAccount(Account account) {
+        this.account = account;
     }
     
 }
