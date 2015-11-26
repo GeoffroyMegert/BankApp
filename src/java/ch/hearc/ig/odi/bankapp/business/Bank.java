@@ -80,6 +80,7 @@ public class Bank {
         }
         
         this.accounts.put(number, new Account(number, name, rate, customer));
+        customer.addAccount(number, name, rate);
     }
     
     public int getNumber() {

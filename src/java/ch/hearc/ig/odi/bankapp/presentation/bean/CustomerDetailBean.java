@@ -33,9 +33,7 @@ public class CustomerDetailBean implements Serializable {
     public DataModel<Account> getAccounts() {
         accounts = new ListDataModel<>();
         
-        for(Account account : customer.getAccounts()) {
-            accounts.setWrappedData(account);
-        }
+        accounts.setWrappedData(customer.getAccounts());
         
         return accounts;
     }
