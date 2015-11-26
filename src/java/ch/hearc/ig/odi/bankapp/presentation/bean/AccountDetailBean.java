@@ -8,7 +8,8 @@ package ch.hearc.ig.odi.bankapp.presentation.bean;
 import ch.hearc.ig.odi.bankapp.business.Account;
 import ch.hearc.ig.odi.bankapp.business.Customer;
 import ch.hearc.ig.odi.bankapp.services.Services;
-import javax.enterprise.context.RequestScoped;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -17,8 +18,8 @@ import javax.inject.Named;
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
 @Named("AccountDetailBean")
-@RequestScoped
-public class AccountDetailBean {
+@SessionScoped
+public class AccountDetailBean implements Serializable {
     
     private Account account;
     
