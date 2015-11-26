@@ -42,4 +42,11 @@
             <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/customerDetail.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>return</from-outcome>
+            <to-view-id>/customersList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
