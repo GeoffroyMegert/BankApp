@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!-- Paramètre de contexte. -->
     <context-param>
+        <!-- Nom du paramètre. -->
         <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <!-- Valeur du paramètre. -->
         <param-value>Development</param-value>
     </context-param>
+    <!-- Configuration des servlets (peut aussi être fait à l'aide d'annotation). -->
     <servlet>
+        <!-- Nom du servlet. -->
         <servlet-name>Faces Servlet</servlet-name>
+        <!-- Emplacement du servlet. -->
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <!-- 
+            Démarrage ou non du servlet au démarrage de l'application.
+            Valeur négative ou absente =  choix laissé à l'application.
+            Valeur positive ou nul = servlet démarré au démarrage de l'application.
+        -->
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <!-- Mapping des servlets. -->
     <servlet-mapping>
+        <!-- Nom du servlet. -->
         <servlet-name>Faces Servlet</servlet-name>
+        <!-- URL mappé au servlet. -->
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
+    <!-- Configuration de la session. -->
     <session-config>
+        <!--
+            Durée de vie de la session après la dernère action de l'utilisateur.
+            Par défaut, 30 minutes.
+        -->
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <!-- Liste des pages appelées au démarrage de l'application. -->
     <welcome-file-list>
+        <!-- Page appelée au démarrage de l'application (page d'accueil). -->
         <welcome-file>faces/customersList.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
