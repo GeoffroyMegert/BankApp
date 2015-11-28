@@ -12,7 +12,8 @@
                 gérant l'internationalisation pour la langue par défaut.
                 Ce fichier s'appelle "Messages". Les fichiers de traduction pour 
                 d'autres langues doivent respecter la structure "Messages_AbréviationLangue[_AbréviationPays].
-                Par exemple "Messages_en_US". Ces fichiers sont des ".properties".
+                Par exemple "Messages_en_US". Ces fichiers sont des ".properties",
+                vous les trouverez dans le package "ch.hearc.ig.odi.bankapp.messages".
             -->
             <base-name>
                 ch.hearc.ig.odi.bankapp.messages.Messages
