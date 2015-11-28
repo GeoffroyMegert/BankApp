@@ -6,12 +6,17 @@ import java.util.*;
  * Classe permettant la gestion de clients.
  * 
  * @author Loïc Megert <loic.megert@he-arc.ch>
+ * Prise en charge par Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
 public class Customer {
 
+    /** La liste des comptes possédés par ce client. */
     private Map<String, Account> accounts;
+    /** Le numéro du client. */
     private int number;
+    /** Le prénom du client. */
     private String firstName;
+    /** Le nom du client. */
     private String lastName;
 
     /**
@@ -29,7 +34,7 @@ public class Customer {
     }
 
     /**
-     * Retourne le compte possédant le numéro passé en paramètre.
+     * Cherche le compte possédant le numéro passé en paramètre.
      *
      * @param number Le numéro du compte désiré.
      * @return Le compte recherché ou null s'il n'existe pas.
@@ -38,6 +43,11 @@ public class Customer {
         return this.accounts.get(number);
     }
     
+    /**
+     * Envoie la liste des comptes possédés par ce client.
+     * 
+     * @return La liste des comptes possédés par ce client.
+     */
     public List<Account> getAccounts() {
         return new ArrayList<>(this.accounts.values());
     }
@@ -53,26 +63,56 @@ public class Customer {
         this.accounts.put(number, new Account(number, name, rate, this));
     }
     
+    /**
+     * Permet d'obtenir le numéro du client.
+     * 
+     * @return Le numéro du client.
+     */
     public int getNumber() {
         return this.number;
     }
 
+    /**
+     * Modifie le numéro du client par celui passé en paramètre.
+     * 
+     * @param number Le nouveau numéro du client.
+     */
     public void setNumber(int number) {
         this.number = number;
     }
 
+    /**
+     * Permet d'obtenir le prénom du client.
+     * 
+     * @return Le prénom du client.
+     */
     public String getFirstName() {
         return this.firstName;
     }
 
+    /**
+     * Modifie le prénom du client par celui passé en paramètre.
+     * 
+     * @param firstName Le nouveau prénom du client.
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     * Permet d'obtenir le nom du client.
+     * 
+     * @return Le nom du client.
+     */
     public String getLastName() {
         return this.lastName;
     }
 
+    /**
+     * Modifie le nom du client par celui passé en paramètre.
+     * 
+     * @param lastName Le nouveau nom du client.
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

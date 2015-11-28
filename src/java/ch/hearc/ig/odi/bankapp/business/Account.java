@@ -4,13 +4,19 @@ package ch.hearc.ig.odi.bankapp.business;
  * Classe permettant la gestion de comptes.
  * 
  * @author Loïc Megert <loic.megert@he-arc.ch>
+ * Prise en charge par Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
 public class Account {
 
+    /** Le propriétaire du compte. */
     private Customer customer;
+    /** Le numéro du compte. */
     private String number;
+    /** Le nom du compte. */
     private String name;
+    /** Le solde du compte. Par défaut : 0 */
     private double balance = 0;
+    /** Le taux d'intérêt du compte. Par défaut : 0.001 */
     private double rate = 0.001;
     
     /**
@@ -29,29 +35,35 @@ public class Account {
     }
 
     /**
-     * Crédite le montant désiré sur le compte.
+     * Crédite (ajoute) le montant désiré sur le compte.
      *
      * @param amount Le montant à créditer.
+     * @throws IllegalArgumentException si le montant spécifié est négatif ou nul.
      */
     public void credit(final double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Impossible de créditer un montant négatif ou null !");
         }
+        
         this.balance += amount;
     }
 
     /**
-     * Débite le montant désiré sur le compte.
+     * Débite (enlève) le montant désiré sur le compte.
      *
      * @param amount Le montant à débiter.
+     * @throws IllegalArgumentException si le montant spécifié est négatif ou nul.
+     * @throws IllegalStateException si le solde est insuffisant pour permettre le débit demandé.
      */
     public void debit(final double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Impossible de débiter un montant négatif ou null !");
         }
+        
         if (this.balance < amount) {
             throw new IllegalStateException("Solde insuffisant ! Débit refusé.");
         }
+        
         this.balance -= amount;
     }
 
@@ -67,41 +79,82 @@ public class Account {
         target.credit(amount);
     }
 
+    /**
+     * Permet d'obtenir le numéro du compte.
+     * 
+     * @return Le numéro du compte.
+     */
     public String getNumber() {
         return this.number;
     }
 
-    public void setNumber(String number) {
+    /**
+     * Modifie le numéro du compte par celui passé en paramètre.
+     * 
+     * @param number Le nouveau numéro du compte.
+     */
+    public void setNumber(final String number) {
         this.number = number;
     }
 
+    /**
+     * Permet d'obtenir le nom du compte.
+     * 
+     * @return Le nom du compte.
+     */
     public String getName() {
         return this.name;
     }
 
-    public void setName(String name) {
+    /**
+     * Modifie le nom du compte par celui passé en paramètre.
+     * 
+     * @param name Le nouveau nom du compte.
+     */
+    public void setName(final String name) {
         this.name = name;
     }
 
+    /**
+     * Permet d'obtenir le solde du compte.
+     * 
+     * @return Le solde du compte.
+     */
     public double getBalance() {
         return this.balance;
     }
 
-    public void setBalance(double balance) {
+    /**
+     * Modifie le solde du compte par celui passé en paramètre.
+     * 
+     * @param balance Le nouveau solde du compte.
+     */
+    public void setBalance(final double balance) {
         this.balance = balance;
     }
 
+    /**
+     * Permet d'obtenir le taux d'intérêt du compte.
+     * 
+     * @return Le taux d'intérêt du compte.
+     */
     public double getRate() {
         return this.rate;
     }
 
-    public void setRate(double rate) {
+    /**
+     * Modifie le taux d'intérêt du compte par celui passé en paramètre.
+     * 
+     * @param rate Le nouveau taux d'intérêt du compte.
+     */
+    public void setRate(final double rate) {
         this.rate = rate;
     }
     
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        
         sb.append(this.customer.getFirstName());
         sb.append(" ");
         sb.append(this.customer.getLastName());
@@ -113,6 +166,7 @@ public class Account {
         sb.append(this.balance);
         sb.append(";");
         sb.append(this.rate);
+        
         return sb.toString();
     }
 
