@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+    Cette page affiche la liste des clients enregistrés auprès d'une banque.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
 <html lang="#{localeBean.language}"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -11,8 +16,13 @@
         <h1><h:outputText value="#{bundle.CustomersList}"/></h1>
 
         <h:form>
+            <!-- 
+                Affiche la liste des clients enregistrés auprès d'une banque.
+                Structure du tableau : | Numéro | Prénom | Nom | Bouton de détail du client |.
+            -->
             <h:dataTable value="#{CustomersBean.customers}" var="cust">
                 <h:column>
+                    <!-- En-tête d'une colonne du tableau (dans ce cas, Numéro) -->
                     <f:facet name="header"><h:outputText value="#{bundle.Id}"/></f:facet>
                         #{cust.number}
                 </h:column>
@@ -29,6 +39,7 @@
                 </h:column>
             </h:dataTable>
             <br/>
+            <!-- Bouton pour la création d'un nouveau client. -->
             <h:commandButton id="Add" value="#{bundle.Add}" action="createCustomer"/>
         </h:form>
     </h:body>
