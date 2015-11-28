@@ -11,19 +11,18 @@
         <h1><h:outputText value="#{bundle.AccountDetail}"/></h1>
         
         <h:form>
-            <h:outputLabel for="id" value="#{bundle.Id} : "/>
-            <h:outputText id="id" value="#{AccountDetailBean.account.number}"/>
+            <h:panelGrid border="0" columns="2">
+                <h:outputLabel for="id" value="#{bundle.Id} : "/>
+                <h:outputText id="id" value="#{AccountDetailBean.account.number}"/>
+                <h:outputLabel for="label" value="#{bundle.Label} : "/>
+                <h:outputText id="label" value="#{AccountDetailBean.account.name}"/>
+                <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
+                <h:outputText id="balance" value="#{AccountDetailBean.account.balance}"/>
+                <h:outputLabel for="rate" value="#{bundle.Rate} : "/>
+                <h:outputText id="rate" value="#{AccountDetailBean.account.rate}"/>
+            </h:panelGrid>
             <br/>
-            <h:outputLabel for="label" value="#{bundle.Label} : "/>
-            <h:outputText id="label" value="#{AccountDetailBean.account.name}"/>
-            <br/>
-            <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
-            <h:outputText id="balance" value="#{AccountDetailBean.account.balance}"/>
-            <br/>
-            <h:outputLabel for="rate" value="#{bundle.Rate} : "/>
-            <h:outputText id="rate" value="#{AccountDetailBean.account.rate}"/>
-            <br/>
-            <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action="returnToCustomer"/><br/>
+            <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action="returnToCustomer"/><br/><br/>
             <h:commandButton id="returnHome" value="#{bundle.ReturnHome}" action="returnHome"/>
         </h:form>
     </h:body>

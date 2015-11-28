@@ -12,14 +12,14 @@
     <h:body>
         <h1><h:outputText value="#{bundle.CreateCustomerTitle}"/></h1>
         <h:form id="createCustomer">
-            <h:outputLabel for="id" value="#{bundle.Id} : "/>
-            <h:inputText id="id" value="#{CustomerCreateBean.id}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
-            <br/>
-            <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
-            <h:inputText id="firstname" value="#{CustomerCreateBean.firstName}" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
-            <br/>
-            <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
-            <h:inputText id="lastname" value="#{CustomerCreateBean.lastName}" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
+            <h:panelGrid border="0" columns="2">
+                <h:outputLabel for="id" value="#{bundle.Id} : "/>
+                <h:inputText id="id" value="#{CustomerCreateBean.id}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
+                <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
+                <h:inputText id="firstname" value="#{CustomerCreateBean.firstName}" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
+                <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
+                <h:inputText id="lastname" value="#{CustomerCreateBean.lastName}" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
+            </h:panelGrid>
             <br/>
             <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
             <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{CustomerCreateBean.submit()}"/>

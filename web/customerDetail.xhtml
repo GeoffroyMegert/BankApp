@@ -12,14 +12,14 @@
         <h1><h:outputText value="#{bundle.CustomerDetail}"/></h1>
         
         <h:form>
-            <h:outputLabel for="id" value="#{bundle.Id} : "/>
-            <h:outputText id="id" value="#{CustomerDetailBean.customer.number}"/>
-            <br/>
-            <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
-            <h:outputText id="firstname" value="#{CustomerDetailBean.customer.firstName}"/>
-            <br/>
-            <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
-            <h:outputText id="lastname" value="#{CustomerDetailBean.customer.lastName}"/>
+            <h:panelGrid border="0" columns="2">
+                <h:outputLabel for="id" value="#{bundle.Id} : "/>
+                <h:outputText id="id" value="#{CustomerDetailBean.customer.number}"/>
+                <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
+                <h:outputText id="firstname" value="#{CustomerDetailBean.customer.firstName}"/>
+                <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
+                <h:outputText id="lastname" value="#{CustomerDetailBean.customer.lastName}"/>
+            </h:panelGrid>
             
             <h2><h:outputText value="#{bundle.CustomerAccountsList}"/></h2>
             
