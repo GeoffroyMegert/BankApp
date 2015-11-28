@@ -5,17 +5,48 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
     <application>
+        <!-- Le regroupement des ressources (resource bundle) permet l'internationalisation de l'application. -->
         <resource-bundle>
+            <!--
+                Il est nécessaire de préciser l'emplacement du fichier de propriété 
+                gérant l'internationalisation pour la langue par défaut.
+                Ce fichier s'appelle "Messages". Les fichiers de traduction pour 
+                d'autres langues doivent respecter la structure "Messages_AbréviationLangue[_AbréviationPays].
+                Par exemple "Messages_en_US". Ces fichiers sont des ".properties".
+            -->
             <base-name>
                 ch.hearc.ig.odi.bankapp.messages.Messages
             </base-name>
+            <!--
+                Nom de la variable, qui sera utilisée dans l'application pour
+                faire appel aux fichiers d'internationalisation.
+            -->
             <var>bundle</var>
         </resource-bundle>
+        <!-- Précise les langues supportées pour l'internationalisation de l'application. -->
         <locale-config>
+            <!-- La langue par défaut de l'application. -->
             <default-locale>fr</default-locale>
+            <!-- La/les autre(s) langue(s) supportée(s) pour l'exécution de l'application. -->
             <supported-locale>en</supported-locale>
         </locale-config>
     </application>
+    <!-- 
+        Mise en place de la navigation entre les pages de l'application.
+        Structure de base :
+        <navigation-rule>
+            <from-view-id>Page source</from-view-id>
+            <navigation-case>
+                <from-action>Action déclencheur (appel d'une méthode)</from-action>
+                <from-outcome>Résultat de l'action</from-outcome>
+                <to-view-id>Page cible</to-view-id>
+            </navigation-case>
+            <navigation-case>
+                <from-outcome>Action déclencheur (appel d'une page)</from-outcome>
+                <to-view-id>Page cible</to-view-id>
+            </navigation-case>
+        </navigation-rule>
+    -->
     <navigation-rule>
         <from-view-id>/customersList.xhtml</from-view-id>
         <navigation-case>
