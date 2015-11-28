@@ -3,6 +3,7 @@
     Author     : Geoffroy Megert <geoffroy.megert@he-arc.ch>
 */
 
+/* Colore les messages d'erreur en rouge. */
 ul.erreur{
     color: red;
 }
