@@ -20,16 +20,12 @@
         <h:form>
             <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
-                <!-- Le numéro du compte. -->
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
                 <h:outputText id="id" value="#{AccountDetailBean.account.number}"/>
-                <!-- Le libellé du compte. -->
                 <h:outputLabel for="label" value="#{bundle.Label} : "/>
                 <h:outputText id="label" value="#{AccountDetailBean.account.name}"/>
-                <!-- Le solde du compte. -->
                 <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
                 <h:outputText id="balance" value="#{AccountDetailBean.account.balance}"/>
-                <!-- Le taux d'intérêt du compte. -->
                 <h:outputLabel for="rate" value="#{bundle.Rate} : "/>
                 <h:outputText id="rate" value="#{AccountDetailBean.account.rate}"/>
             </h:panelGrid>

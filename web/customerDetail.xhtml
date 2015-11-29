@@ -21,13 +21,10 @@
         <h:form>
             <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
-                <!-- Le numéro du client. -->
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
                 <h:outputText id="id" value="#{CustomerDetailBean.customer.number}"/>
-                <!-- Le prénom du client. -->
                 <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
                 <h:outputText id="firstname" value="#{CustomerDetailBean.customer.firstName}"/>
-                <!-- Le nom du client. -->
                 <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
                 <h:outputText id="lastname" value="#{CustomerDetailBean.customer.lastName}"/>
             </h:panelGrid>

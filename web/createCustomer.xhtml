@@ -23,13 +23,10 @@
         <h:form id="createCustomer">
             <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
-                <!-- Le numéro du client. C'est un champ obligatoire. -->
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
                 <h:inputText id="id" value="#{CustomerCreateBean.id}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
-                <!-- Le prénom du client. C'est un champ obligatoire. -->
                 <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
                 <h:inputText id="firstname" value="#{CustomerCreateBean.firstName}" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
-                <!-- Le nom du client. C'est un champ obligatoire. -->
                 <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
                 <h:inputText id="lastname" value="#{CustomerCreateBean.lastName}" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
             </h:panelGrid>
