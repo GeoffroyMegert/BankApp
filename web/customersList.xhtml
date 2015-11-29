@@ -13,6 +13,7 @@
         <title><h:outputText value="#{bundle.CustomersList}"/></title>
     </h:head>
     <h:body>
+        <!-- Titre de la page. -->
         <h1><h:outputText value="#{bundle.CustomersList}"/></h1>
 
         <h:form>
@@ -22,15 +23,17 @@
             -->
             <h:dataTable value="#{CustomersBean.customers}" var="cust">
                 <h:column>
-                    <!-- En-tête d'une colonne du tableau (dans ce cas, Numéro) -->
+                    <!-- En-tête de la colonne Numéro du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.Id}"/></f:facet>
                         #{cust.number}
                 </h:column>
                 <h:column>
+                    <!-- En-tête de la colonne Prénom du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.FirstName}"/></f:facet>
                         #{cust.firstName}
                 </h:column>
                 <h:column>
+                    <!-- En-tête de la colonne Nom du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.LastName}"/></f:facet>
                         #{cust.lastName}
                 </h:column>
