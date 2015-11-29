@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+    Cette page affiche le formulaire de création d'un nouveau client.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
 <html lang="#{localeBean.language}"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -7,24 +12,36 @@
     <h:head>
         <title><h:outputText value="#{bundle.CreateCustomerTitle}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Lien vers le fichier "style.css" se trouvant dans le dossier "ressources", puis sous "css". -->
         <link rel="stylesheet" type="text/css" href="ressources/css/style.css"/>
     </h:head>
     <h:body>
+        <!-- Titre de la page. -->
         <h1><h:outputText value="#{bundle.CreateCustomerTitle}"/></h1>
+        
+        <!-- Formulaire de création d'un client. -->
         <h:form id="createCustomer">
+            <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
+                <!-- Le numéro du client. C'est un champ obligatoire. -->
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
                 <h:inputText id="id" value="#{CustomerCreateBean.id}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
+                <!-- Le prénom du client. C'est un champ obligatoire. -->
                 <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
                 <h:inputText id="firstname" value="#{CustomerCreateBean.firstName}" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
+                <!-- Le nom du client. C'est un champ obligatoire. -->
                 <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
                 <h:inputText id="lastname" value="#{CustomerCreateBean.lastName}" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
             </h:panelGrid>
             <br/>
+            <!-- Bouton reset. -->
             <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
+            <!-- Bouton de soumission du formulaire. -->
             <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{CustomerCreateBean.submit()}"/>
             <br/><br/>
+            <!-- Bouton d'annulation. Retourne à la liste des clients. -->
             <h:commandButton id="cancel" value="#{bundle.Cancel}" action="cancel" immediate="true"/>
+            <!-- Affiche les messages d'erreurs en cas de non-saisie d'un champ obligatoire. -->
             <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
         </h:form>
     </h:body>
