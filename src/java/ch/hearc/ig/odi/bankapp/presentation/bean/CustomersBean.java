@@ -16,16 +16,16 @@ import javax.inject.Named;
  */
 // Le nom du Backing Bean. C'est ce nom qui est employé pour l'appeler depuis d'autres pages.
 @Named("CustomersBean")
-// Cycle de vie du Backing Bean. Il ne modifie pas d'objet, donc son cycle de vie est d'une requête.
+// Cycle de vie du Backing Bean.
+// Il ne modifie pas d'objet, donc son cycle de vie est d'une requête.
 @RequestScoped
 public class CustomersBean implements Serializable {
     
-    /**
-     * La liste des clients enregistrés auprès d'une banque.
-     */
+    /** La liste des clients enregistrés auprès d'une banque. */
     // Les DataModel sont orientés pour les composants des JavaServer Faces.
     private DataModel<Customer> customers;
     
+    /** Services mises à disposition du programmeur. */
     // Gère automatiquement l'instanciation de l'attribut "services".
     @Inject
     private Services services;
