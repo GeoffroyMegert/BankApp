@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
+<!--
+    Cette page affiche le message annonçant création avec succès d'un nouveau client.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
 <html lang="#{localeBean.language}"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
@@ -8,10 +13,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
+        <!-- Titre de la page. -->
         <h1><h:outputText value="#{bundle.Success}"/></h1>
+        
+        <!-- Message confirmant la création du nouveau client. -->
         <h:outputText value="#{bundle.CustomerMessage}"/>
         <br/><br/>
         <h:form>
+            <!-- Lien renvoyant vers la liste des clients. -->
             <h:commandLink value="#{bundle.ReturnHome}" action="return"/>
         </h:form>
     </h:body>
