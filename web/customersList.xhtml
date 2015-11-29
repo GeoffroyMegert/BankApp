@@ -23,17 +23,17 @@
             -->
             <h:dataTable value="#{CustomersBean.customers}" var="cust">
                 <h:column>
-                    <!-- En-tête de la colonne Numéro du tableau. -->
+                    <!-- En-tête de la colonne "Numéro" du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.Id}"/></f:facet>
                         #{cust.number}
                 </h:column>
                 <h:column>
-                    <!-- En-tête de la colonne Prénom du tableau. -->
+                    <!-- En-tête de la colonne "Prénom" du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.FirstName}"/></f:facet>
                         #{cust.firstName}
                 </h:column>
                 <h:column>
-                    <!-- En-tête de la colonne Nom du tableau. -->
+                    <!-- En-tête de la colonne "Nom" du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.LastName}"/></f:facet>
                         #{cust.lastName}
                 </h:column>
