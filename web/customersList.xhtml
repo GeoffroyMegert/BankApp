@@ -35,6 +35,7 @@
                         #{cust.lastName}
                 </h:column>
                 <h:column>
+                    <!-- Lien pour l'affichage du détail d'un client. -->
                     <h:commandLink id="ShowDetailCustomer" value="#{bundle.Show}" action="#{CustomerDetailBean.getCustomer(cust.number)}"/>
                 </h:column>
             </h:dataTable>
