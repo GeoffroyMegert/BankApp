@@ -37,7 +37,7 @@ public class CustomerDetailBean implements Serializable {
     /** 
      * Recherche le client au sein de la banque.
      * 
-     * @param id Le numéro du client désiré.
+     * @param id Le numéro du client recherché.
      * @return "success" si le client a été trouvé, sinon retourne "failure".
      */
     public String getCustomer(final int id) {

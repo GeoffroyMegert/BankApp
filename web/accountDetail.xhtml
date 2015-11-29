@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
+<!--
+    Cette page affiche le détail d'un compte client.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
 <html lang="#{localeBean.language}"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
@@ -8,21 +13,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
+        <!-- Titre de la page. -->
         <h1><h:outputText value="#{bundle.AccountDetail}"/></h1>
         
+        <!-- Formulaire affichant le détail d'un compte client. -->
         <h:form>
+            <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
+                <!-- Le numéro du compte. -->
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
                 <h:outputText id="id" value="#{AccountDetailBean.account.number}"/>
+                <!-- Le libellé du compte. -->
                 <h:outputLabel for="label" value="#{bundle.Label} : "/>
                 <h:outputText id="label" value="#{AccountDetailBean.account.name}"/>
+                <!-- Le solde du compte. -->
                 <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
                 <h:outputText id="balance" value="#{AccountDetailBean.account.balance}"/>
+                <!-- Le taux d'intérêt du compte. -->
                 <h:outputLabel for="rate" value="#{bundle.Rate} : "/>
                 <h:outputText id="rate" value="#{AccountDetailBean.account.rate}"/>
             </h:panelGrid>
             <br/>
+            <!-- Bouton pour retourner au détail du client. -->
             <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action="returnToCustomer"/><br/><br/>
+            <!-- Bouton pour retourner à la liste des clients. -->
             <h:commandButton id="returnHome" value="#{bundle.ReturnHome}" action="returnHome"/>
         </h:form>
     </h:body>
