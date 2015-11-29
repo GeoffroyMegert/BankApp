@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 /**
  * Cette classe est un Backing Bean lié à la page "customersList.xhtml".
+ * Elle permet de gérer les clients enregistrés auprès d'une banque.
  * 
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */

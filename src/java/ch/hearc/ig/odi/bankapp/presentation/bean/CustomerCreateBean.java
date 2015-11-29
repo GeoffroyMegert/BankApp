@@ -8,6 +8,7 @@ import javax.inject.Named;
 
 /**
  * Cette classe est un Backing Bean lié à la page "createCustomer.xhtml".
+ * Elle permet de gérer la création de nouveau client.
  * 
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
