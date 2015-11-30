@@ -2,12 +2,10 @@ package ch.hearc.ig.odi.bankapp.presentation.bean;
 
 import ch.hearc.ig.odi.bankapp.business.Account;
 import ch.hearc.ig.odi.bankapp.business.Customer;
-import ch.hearc.ig.odi.bankapp.services.Services;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -29,19 +27,14 @@ public class CustomerDetailBean implements Serializable {
     // Les DataModel sont orientés pour les composants des JavaServer Faces.
     private DataModel<Account> accounts;
     
-    /** Services mises à disposition du programmeur. */
-    // Gère automatiquement l'instanciation de l'attribut "services".
-    @Inject
-    private Services services;
-
     /** 
-     * Recherche le client au sein de la banque.
+     * Reçoit le client à détailler.
      * 
-     * @param id Le numéro du client recherché.
-     * @return "success" si le client a été trouvé, sinon retourne "failure".
+     * @param customer  Le client à détailler.
+     * @return "success" si le client a été reçu, sinon retourne "failure".
      */
-    public String getCustomer(final int id) {
-        customer = services.getCustomer(id);
+    public String getCustomer(final Customer customer) {
+        this.customer = customer;
         
         if(customer != null) {
             return "success";
@@ -77,7 +70,7 @@ public class CustomerDetailBean implements Serializable {
      * 
      * @param customer Le nouveau client à détailler.
      */
-    public void setCustomer(Customer customer) {
+    public void setCustomer(final Customer customer) {
         this.customer = customer;
     }
     

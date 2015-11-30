@@ -55,7 +55,7 @@
             <to-view-id>/createCustomer.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{CustomerDetailBean.getCustomer(cust.number)}</from-action>
+            <from-action>#{CustomerDetailBean.getCustomer(cust)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/customerDetail.xhtml</to-view-id>
         </navigation-case>
@@ -86,7 +86,7 @@
             <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{AccountDetailBean.getAccount(CustomerDetailBean.customer.number, acc.number)}</from-action>
+            <from-action>#{AccountDetailBean.getAccount(CustomerDetailBean.customer, acc)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/accountDetail.xhtml</to-view-id>
         </navigation-case>

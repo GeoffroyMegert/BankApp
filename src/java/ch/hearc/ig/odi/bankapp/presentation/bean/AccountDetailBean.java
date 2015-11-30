@@ -2,10 +2,8 @@ package ch.hearc.ig.odi.bankapp.presentation.bean;
 
 import ch.hearc.ig.odi.bankapp.business.Account;
 import ch.hearc.ig.odi.bankapp.business.Customer;
-import ch.hearc.ig.odi.bankapp.services.Services;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -24,23 +22,16 @@ public class AccountDetailBean implements Serializable {
     /** Le compte à détailler. */
     private Account account;
     
-    /** Services mises à disposition du programmeur. */
-    // Gère automatiquement l'instanciation de l'attribut "services".
-    @Inject
-    private Services services;
-
     /**
-     * Recherche le compte parmi ceux possédés par le client.
+     * Reçoit le compte à détailler parmi ceux possédés par le client.
      * 
-     * @param customerId Le numéro du client propriétaire du compte.
-     * @param accountId Le numéro du compte recherché.
-     * @return "success" si le client a été trouvé, sinon retourne "failure".
+     * @param customer Le client propriétaire du compte.
+     * @param account Le compte à détailler.
+     * @return "success" si le client a été reçu et qu'il appartient au client souhaité, sinon retourne "failure".
      */
-    public String getAccount(final int customerId, final String accountId) {
-        Customer customer = services.getCustomer(customerId);
-        account = customer.getAccountByNumber(accountId);
-        
-        if(account != null) {
+    public String getAccount(final Customer customer, final Account account) {
+        if(customer.getAccountByNumber(account.getNumber()) != null) {
+            this.account = account;
             return "success";
         } else {
             return "failure";
@@ -61,7 +52,7 @@ public class AccountDetailBean implements Serializable {
      * 
      * @param account Le nouveau compte à détailler.
      */
-    public void setAccount(Account account) {
+    public void setAccount(final Account account) {
         this.account = account;
     }
     

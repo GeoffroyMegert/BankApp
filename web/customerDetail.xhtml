@@ -60,7 +60,7 @@
                 </h:column>
                 <h:column>
                     <!-- Lien pour l'affichage du détail d'un compte. -->
-                    <h:commandLink value="#{bundle.Show}" action="#{AccountDetailBean.getAccount(CustomerDetailBean.customer.number, acc.number)}"/>
+                    <h:commandLink value="#{bundle.Show}" action="#{AccountDetailBean.getAccount(CustomerDetailBean.customer, acc)}"/>
                 </h:column>
             </h:dataTable>
             <br/>
