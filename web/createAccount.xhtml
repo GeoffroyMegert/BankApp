@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><h:outputText value="#{bundle.CreateAccountTitle}"/></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Lien vers le fichier "style.css" se trouvant dans le dossier "ressources", puis sous "css". -->
+        <link rel="stylesheet" type="text/css" href="ressources/css/style.css"/>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="#{bundle.CreateAccountTitle}"/></h1>
+        
+        <h:form>
+            <h:panelGrid border="0" columns="2">
+                <h:outputLabel for="id" value="#{bundle.Id} : "/>
+                <h:inputText id="id" value="#{AccountCreateBean.number}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
+                
+                <h:outputLabel for="label" value="#{bundle.Label} : "/>
+                <h:inputText id="label" value="#{AccountCreateBean.name}" required="true" requiredMessage="#{bundle.ErrorLabel}"/>
+                
+                <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
+                <h:inputText id="balance" value="#{AccountCreateBean.balance}" required="true" requiredMessage="#{bundle.ErrorBalance}"/>
+                
+                <h:outputLabel for="rate" value="#{bundle.Rate} : "/>
+                <h:inputText id="rate" value="#{AccountCreateBean.rate}" required="true" requiredMessage="#{bundle.ErrorRate}"/>
+            </h:panelGrid>
+            <br/>
+            <!-- Bouton reset. -->
+            <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
+            <!-- Bouton de soumission du formulaire. -->
+            <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{AccountCreateBean.submit()}"/>
+            <br/><br/>
+            <!-- Bouton d'annulation. Retourne à la liste des clients. -->
+            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="cancel" immediate="true"/>
+            <br/><br/>
+            <!-- Bouton d'annulation. Retourne à la liste des clients. -->
+            <h:commandButton id="returnHome" value="#{bundle.ReturnHome}" action="returnHome" immediate="true"/>
+            <!-- Affiche les messages d'erreurs en cas de non-saisie d'un champ obligatoire. -->
+            <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
+        </h:form>
+    </h:body>
+</html>
