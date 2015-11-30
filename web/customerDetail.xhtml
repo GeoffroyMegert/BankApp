@@ -64,6 +64,8 @@
                 </h:column>
             </h:dataTable>
             <br/>
+            <h:commandButton id="Add" value="#{bundle.Add}" action="#{AccountCreateBean.getCustomer(CustomerDetailBean.customer)}"/>
+            <br/><br/>
             <!-- Bouton pour retourner à la liste des clients. -->
             <h:commandButton id="Return" value="#{bundle.ReturnHome}" action="return"/>
         </h:form>
