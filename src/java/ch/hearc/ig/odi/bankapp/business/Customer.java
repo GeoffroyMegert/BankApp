@@ -58,9 +58,17 @@ public class Customer {
      * @param number Le numéro du compte.
      * @param name Le nom du compte.
      * @param rate Le taux d'intérêt du compte.
+     * @return Le compte créé ou null s'il existe déjà.
      */
-    public void addAccount(final String number, final String name, final double rate) {
-        this.accounts.put(number, new Account(number, name, rate, this));
+    public Account addAccount(final String number, final String name, final double rate) {
+        if(!accounts.containsKey(number)) {
+            Account account = new Account(number, name, rate, this);
+            this.accounts.put(number, account);
+            
+            return account;
+        } else {
+            return null;
+        }
     }
     
     /**

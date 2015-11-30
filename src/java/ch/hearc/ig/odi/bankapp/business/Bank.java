@@ -68,12 +68,16 @@ public class Bank {
      * @param number Le numéro du nouveau client.
      * @param firstName Le prénom du nouveau client.
      * @param lastName Le nom du nouveau du client.
-     * @return Le client nouvellement enregistré auprès de la banque.
+     * @return Le client nouvellement enregistré auprès de la banque ou null s'il existe déjà.
      */
     public Customer addCustomer(final int number, final String firstName, final String lastName) {
-        Customer customer = new Customer(number, firstName, lastName);
-        this.customers.put(number, customer);
-        return customer;
+        if(!customers.containsKey(number)) {
+            Customer customer = new Customer(number, firstName, lastName);
+            this.customers.put(number, customer);
+            return customer;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -83,15 +87,20 @@ public class Bank {
      * @param name Le nom du nouveau compte.
      * @param rate Le taux d'intérêt du nouveau compte.
      * @param customer Le propriétaire du compte.
+     * @return Le compte créé ou null s'il existe déjà.
      * @throws IllegalArgumentException si le client n'est pas enregistré auprès de la banque.
      */
-    public void addAccount(final String number, final String name, final double rate, final Customer customer) {
+    public Account addAccount(final String number, final String name, final double rate, final Customer customer) {
         if(getCustomerByNumber(customer.getNumber()) == null) {
             throw new IllegalArgumentException("Le client n'est pas enregistré au près de la banque.");
         }
         
-        this.accounts.put(number, new Account(number, name, rate, customer));
-        customer.addAccount(number, name, rate);
+        if(!accounts.containsKey(number)) {
+            this.accounts.put(number, new Account(number, name, rate, customer));
+            return customer.addAccount(number, name, rate);
+        } else {
+            return null;
+        }
     }
     
     /**
