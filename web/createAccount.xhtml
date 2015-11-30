@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
+<!--
+    Cette page affiche le formulaire de création d'un nouveau compte.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
@@ -9,9 +14,12 @@
         <link rel="stylesheet" type="text/css" href="ressources/css/style.css"/>
     </h:head>
     <h:body>
+        <!-- Titre de la page. -->
         <h1><h:outputText value="#{bundle.CreateAccountTitle}"/></h1>
         
+        <!-- Formulaire de création d'un compte. -->
         <h:form>
+            <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
                 <h:inputText id="id" value="#{AccountCreateBean.number}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
@@ -31,7 +39,7 @@
             <!-- Bouton de soumission du formulaire. -->
             <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{AccountCreateBean.submit()}"/>
             <br/><br/>
-            <!-- Bouton d'annulation. Retourne à la liste des clients. -->
+            <!-- Bouton d'annulation. Retourne au détail du client. -->
             <h:commandButton id="cancel" value="#{bundle.Cancel}" action="cancel" immediate="true"/>
             <br/><br/>
             <!-- Bouton d'annulation. Retourne à la liste des clients. -->
