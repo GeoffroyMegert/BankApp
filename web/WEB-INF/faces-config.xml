@@ -89,7 +89,7 @@
             <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>#{AccountDetailBean.getAccount(customerDetailBean.customer, acc)}</from-action>
+            <from-action>#{accountDetailBean.getAccount(customerDetailBean.customer, acc)}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/accountDetail.xhtml</to-view-id>
         </navigation-case>
