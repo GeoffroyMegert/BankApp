@@ -21,13 +21,13 @@
             <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
-                <h:outputText id="id" value="#{CustomerDetailBean.customer.number}"/>
+                <h:outputText id="id" value="#{customerDetailBean.customer.number}"/>
                 
                 <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
-                <h:outputText id="firstname" value="#{CustomerDetailBean.customer.firstName}"/>
+                <h:outputText id="firstname" value="#{customerDetailBean.customer.firstName}"/>
                 
                 <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
-                <h:outputText id="lastname" value="#{CustomerDetailBean.customer.lastName}"/>
+                <h:outputText id="lastname" value="#{customerDetailBean.customer.lastName}"/>
             </h:panelGrid>
             
             <!-- Sous-titre de la page pour la liste des comptes du client. -->
@@ -37,7 +37,7 @@
                 Affiche la liste des comptes du client.
                 Structure du tableau : | Numéro | Libellé | Solde | Taux d'intérêt | Bouton de détail du compte |.
             -->
-            <h:dataTable value="#{CustomerDetailBean.accounts}" var="acc">
+            <h:dataTable value="#{customerDetailBean.accounts}" var="acc">
                 <h:column>
                     <!-- En-tête de la colonne "Numéro" du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.Id}"/></f:facet>
@@ -60,11 +60,11 @@
                 </h:column>
                 <h:column>
                     <!-- Lien pour l'affichage du détail d'un compte. -->
-                    <h:commandLink value="#{bundle.Show}" action="#{AccountDetailBean.getAccount(CustomerDetailBean.customer, acc)}"/>
+                    <h:commandLink value="#{bundle.Show}" action="#{AccountDetailBean.getAccount(customerDetailBean.customer, acc)}"/>
                 </h:column>
             </h:dataTable>
             <br/>
-            <h:commandButton id="Add" value="#{bundle.Add}" action="#{AccountCreateBean.getCustomer(CustomerDetailBean.customer)}"/>
+            <h:commandButton id="Add" value="#{bundle.Add}" action="#{AccountCreateBean.getCustomer(customerDetailBean.customer)}"/>
             <br/><br/>
             <!-- Bouton pour retourner à la liste des clients. -->
             <h:commandButton id="Return" value="#{bundle.ReturnHome}" action="return"/>
