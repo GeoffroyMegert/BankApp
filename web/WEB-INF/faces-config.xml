@@ -13,10 +13,10 @@
                 Ce fichier s'appelle "Messages". Les fichiers de traduction pour 
                 d'autres langues doivent respecter la structure "Messages_AbréviationLangue[_AbréviationPays].
                 Par exemple "Messages_en_US". Ces fichiers sont des ".properties",
-                vous les trouverez dans le package "ch.hearc.ig.odi.bankapp.messages".
+                vous les trouverez dans le package "ch.hearc.ig.odi.bankapp.presentation.messages".
             -->
             <base-name>
-                ch.hearc.ig.odi.bankapp.messages.Messages
+                ch.hearc.ig.odi.bankapp.presentation.messages.Messages
             </base-name>
             <!--
                 Nom de la variable, qui sera utilisée dans l'application pour
@@ -60,6 +60,7 @@
             <to-view-id>/customerDetail.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/createCustomer.xhtml</from-view-id>
         <navigation-case>
@@ -72,6 +73,7 @@
             <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/createCustomerOk.xhtml</from-view-id>
         <navigation-case>
@@ -79,6 +81,7 @@
             <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/customerDetail.xhtml</from-view-id>
         <navigation-case>
@@ -96,6 +99,7 @@
             <to-view-id>createAccount.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/accountDetail.xhtml</from-view-id>
         <navigation-case>
@@ -107,6 +111,7 @@
             <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/createAccount.xhtml</from-view-id>
         <navigation-case>
@@ -123,6 +128,7 @@
             <to-view-id>/customersList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/createAccountOk.xhtml</from-view-id>
         <navigation-case>
