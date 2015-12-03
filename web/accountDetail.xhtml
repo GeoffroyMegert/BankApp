@@ -20,20 +20,21 @@
             <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
-                <h:outputText id="id" value="#{AccountDetailBean.account.number}"/>
+                <h:outputText id="id" value="#{accountDetailBean.account.number}"/>
                 
                 <h:outputLabel for="label" value="#{bundle.Label} : "/>
-                <h:outputText id="label" value="#{AccountDetailBean.account.name}"/>
+                <h:outputText id="label" value="#{accountDetailBean.account.name}"/>
                 
                 <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
-                <h:outputText id="balance" value="#{AccountDetailBean.account.balance}"/>
+                <h:outputText id="balance" value="#{accountDetailBean.account.balance}"/>
                 
                 <h:outputLabel for="rate" value="#{bundle.Rate} : "/>
-                <h:outputText id="rate" value="#{AccountDetailBean.account.rate}"/>
+                <h:outputText id="rate" value="#{accountDetailBean.account.rate}"/>
             </h:panelGrid>
             <br/>
             <!-- Bouton pour retourner au détail du client. -->
-            <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action="returnToCustomer"/><br/><br/>
+            <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action="returnToCustomer"/>
+            <br/><br/>
             <!-- Bouton pour retourner à la liste des clients. -->
             <h:commandButton id="returnHome" value="#{bundle.ReturnHome}" action="returnHome"/>
         </h:form>

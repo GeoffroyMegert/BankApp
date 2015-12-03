@@ -60,11 +60,11 @@
                 </h:column>
                 <h:column>
                     <!-- Lien pour l'affichage du détail d'un compte. -->
-                    <h:commandLink value="#{bundle.Show}" action="#{AccountDetailBean.getAccount(customerDetailBean.customer, acc)}"/>
+                    <h:commandLink value="#{bundle.Show}" action="#{accountDetailBean.getAccount(customerDetailBean.customer, acc)}"/>
                 </h:column>
             </h:dataTable>
             <br/>
-            <h:commandButton id="Add" value="#{bundle.Add}" action="#{AccountCreateBean.getCustomer(customerDetailBean.customer)}"/>
+            <h:commandButton id="Add" value="#{bundle.Add}" action="#{accountCreateBean.getCustomer(customerDetailBean.customer)}"/>
             <br/><br/>
             <!-- Bouton pour retourner à la liste des clients. -->
             <h:commandButton id="Return" value="#{bundle.ReturnHome}" action="return"/>
