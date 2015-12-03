@@ -20,7 +20,7 @@
                 Affiche la liste des clients enregistrés auprès d'une banque.
                 Structure du tableau : | Numéro | Prénom | Nom | Bouton de détail du client |.
             -->
-            <h:dataTable value="#{CustomersBean.customers}" var="cust">
+            <h:dataTable value="#{customersBean.customers}" var="cust">
                 <h:column>
                     <!-- En-tête de la colonne "Numéro" du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.Id}"/></f:facet>
