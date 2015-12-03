@@ -2,7 +2,7 @@ package ch.hearc.ig.odi.bankapp.presentation.bean;
 
 import ch.hearc.ig.odi.bankapp.services.Services;
 import java.io.Serializable;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -13,10 +13,10 @@ import javax.inject.Named;
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
 // Le nom du Backing Bean. C'est ce nom qui est employé pour l'appeler depuis d'autres pages.
-@Named("customerCreateBean")
+@Named(value = "customerCreateBean")
 // Cycle de vie du Backing Bean.
-// Il modifie des objets qui ont besoins de persister plus d'une requête, donc son cycle de vie est d'une session.
-@SessionScoped
+// Aucun objet n'a besoin de persister plus d'une requête, donc son cycle de vie est d'une requête.
+@RequestScoped
 public class CustomerCreateBean implements Serializable {
     
     /** Le numéro du nouveau client. */
