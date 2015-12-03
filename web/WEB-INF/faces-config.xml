@@ -64,7 +64,7 @@
     <navigation-rule>
         <from-view-id>/createCustomer.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{CustomerCreateBean.submit()}</from-action>
+            <from-action>#{customerCreateBean.submit()}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/createCustomerOk.xhtml</to-view-id>
         </navigation-case>
