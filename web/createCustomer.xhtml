@@ -6,8 +6,7 @@
     veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title><h:outputText value="#{bundle.CreateCustomerTitle}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,19 +22,19 @@
             <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
-                <h:inputText id="id" value="#{CustomerCreateBean.id}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
+                <h:inputText id="id" value="#{customerCreateBean.id}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
                 
                 <h:outputLabel for="firstname" value="#{bundle.FirstName} : "/>
-                <h:inputText id="firstname" value="#{CustomerCreateBean.firstName}" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
+                <h:inputText id="firstname" value="#{customerCreateBean.firstName}" required="true" requiredMessage="#{bundle.ErrorFirstName}"/>
                 
                 <h:outputLabel for="lastname" value="#{bundle.LastName} : "/>
-                <h:inputText id="lastname" value="#{CustomerCreateBean.lastName}" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
+                <h:inputText id="lastname" value="#{customerCreateBean.lastName}" required="true" requiredMessage="#{bundle.ErrorLastName}"/>
             </h:panelGrid>
             <br/>
             <!-- Bouton reset. -->
             <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
             <!-- Bouton de soumission du formulaire. -->
-            <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{CustomerCreateBean.submit()}"/>
+            <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{customerCreateBean.submit()}"/>
             <br/><br/>
             <!-- Bouton d'annulation. Retourne à la liste des clients. -->
             <h:commandButton id="cancel" value="#{bundle.Cancel}" action="cancel" immediate="true"/>
