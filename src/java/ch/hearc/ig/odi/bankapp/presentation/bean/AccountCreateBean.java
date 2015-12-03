@@ -15,7 +15,7 @@ import javax.inject.Named;
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
 // Le nom du Backing Bean. C'est ce nom qui est employé pour l'appeler depuis d'autres pages.
-@Named("AccountCreateBean")
+@Named(value = "accountCreateBean")
 // Cycle de vie du Backing Bean.
 // Il modifie des objets qui ont besoins de persister plus d'une requête, donc son cycle de vie est d'une session.
 @SessionScoped

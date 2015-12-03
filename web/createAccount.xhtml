@@ -22,22 +22,22 @@
             <!-- Le tableau ne sert qu'à afficher le formulaire de manière structuré. -->
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.Id} : "/>
-                <h:inputText id="id" value="#{AccountCreateBean.number}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
+                <h:inputText id="id" value="#{accountCreateBean.number}" required="true" requiredMessage="#{bundle.ErrorNumber}"/>
                 
                 <h:outputLabel for="label" value="#{bundle.Label} : "/>
-                <h:inputText id="label" value="#{AccountCreateBean.name}" required="true" requiredMessage="#{bundle.ErrorLabel}"/>
+                <h:inputText id="label" value="#{accountCreateBean.name}" required="true" requiredMessage="#{bundle.ErrorLabel}"/>
                 
                 <h:outputLabel for="balance" value="#{bundle.Balance} : "/>
-                <h:inputText id="balance" value="#{AccountCreateBean.balance}" required="true" requiredMessage="#{bundle.ErrorBalance}"/>
+                <h:inputText id="balance" value="#{accountCreateBean.balance}" required="true" requiredMessage="#{bundle.ErrorBalance}"/>
                 
                 <h:outputLabel for="rate" value="#{bundle.Rate} : "/>
-                <h:inputText id="rate" value="#{AccountCreateBean.rate}" required="true" requiredMessage="#{bundle.ErrorRate}"/>
+                <h:inputText id="rate" value="#{accountCreateBean.rate}" required="true" requiredMessage="#{bundle.ErrorRate}"/>
             </h:panelGrid>
             <br/>
             <!-- Bouton reset. -->
             <h:commandButton type="reset" id="reset" value="#{bundle.Reset}"/>
             <!-- Bouton de soumission du formulaire. -->
-            <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{AccountCreateBean.submit()}"/>
+            <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{accountCreateBean.submit()}"/>
             <br/><br/>
             <!-- Bouton d'annulation. Retourne au détail du client. -->
             <h:commandButton id="cancel" value="#{bundle.Cancel}" action="cancel" immediate="true"/>
