@@ -59,6 +59,11 @@
             <from-outcome>success</from-outcome>
             <to-view-id>/customerDetail.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{customerDetailBean.getCustomer(cust)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/customersList.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -67,6 +72,11 @@
             <from-action>#{customerCreateBean.submit()}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/createCustomerOk.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{customerCreateBean.submit()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/createCustomer.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>cancel</from-outcome>
@@ -94,9 +104,19 @@
             <to-view-id>/accountDetail.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-action>#{accountDetailBean.getAccount(customerDetailBean.customer, acc)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/customerDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-action>#{accountCreateBean.getCustomer(customerDetailBean.customer)}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>createAccount.xhtml</to-view-id>
+            <to-view-id>/createAccount.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{accountCreateBean.getCustomer(customerDetailBean.customer)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/customerDetail.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -118,6 +138,11 @@
             <from-action>#{accountCreateBean.submit()}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/createAccountOk.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{accountCreateBean.submit()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/createAccount.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>cancel</from-outcome>

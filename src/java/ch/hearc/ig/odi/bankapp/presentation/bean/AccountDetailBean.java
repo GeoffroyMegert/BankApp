@@ -27,7 +27,7 @@ public class AccountDetailBean implements Serializable {
      * 
      * @param customer Le client propriétaire du compte.
      * @param account Le compte à détailler.
-     * @return "success" si le client a été reçu et qu'il appartient au client souhaité, sinon retourne "failure".
+     * @return "success" si le compte a été reçu et qu'il appartient au client souhaité, sinon retourne "failure".
      */
     public String getAccount(final Customer customer, final Account account) {
         if(customer.getAccountByNumber(account.getNumber()) != null) {

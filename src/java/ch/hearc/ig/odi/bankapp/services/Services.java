@@ -40,8 +40,8 @@ public class Services implements Serializable{
      * @param fn Le prénom du client
      * @param ln Le nom du client
      */
-    public void saveCustomer(Integer number, String fn, String ln){
-        bank.addCustomer(number, fn, ln);
+    public Customer saveCustomer(Integer number, String fn, String ln){
+        return bank.addCustomer(number, fn, ln);
     }
 
     /**

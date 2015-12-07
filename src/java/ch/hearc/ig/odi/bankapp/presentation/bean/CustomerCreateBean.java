@@ -1,5 +1,6 @@
 package ch.hearc.ig.odi.bankapp.presentation.bean;
 
+import ch.hearc.ig.odi.bankapp.business.Customer;
 import ch.hearc.ig.odi.bankapp.services.Services;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
@@ -37,9 +38,13 @@ public class CustomerCreateBean implements Serializable {
      * @return "success" pour signaler le succès de l'enregistrement.
      */
     public String submit() {
-        services.saveCustomer(id, firstName, lastName);
+        Customer customer = services.saveCustomer(id, firstName, lastName);
         
-        return "success";
+        if(customer != null) {
+            return "success";
+        } else {
+            return "failure";
+        }
     }
 
     /**
