@@ -151,8 +151,14 @@
             <to-view-id>/createAccount.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>cancel</from-outcome>
+            <from-action>#{customerDetailBean.getCustomer(accountCreateBean.customer)}</from-action>
+            <from-outcome>success</from-outcome>
             <to-view-id>/customerDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{customerDetailBean.getCustomer(accountCreateBean.customer)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/createAccount.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>returnHome</from-outcome>

@@ -40,7 +40,7 @@
             <h:commandButton type="submit" id="submit" value="#{bundle.Validate}" action="#{accountCreateBean.submit()}"/>
             <br/><br/>
             <!-- Bouton d'annulation. Retourne au détail du client. -->
-            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="cancel" immediate="true"/>
+            <h:commandButton id="cancel" value="#{bundle.Cancel}" action="#{customerDetailBean.getCustomer(accountCreateBean.customer)}" immediate="true"/>
             <br/><br/>
             <!-- Bouton d'annulation. Retourne à la liste des clients. -->
             <h:commandButton id="returnHome" value="#{bundle.ReturnHome}" action="returnHome" immediate="true"/>
