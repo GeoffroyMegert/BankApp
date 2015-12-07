@@ -150,6 +150,14 @@ public class Account {
     public void setRate(final double rate) {
         this.rate = rate;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(final Customer customer) {
+        this.customer = customer;
+    }
     
     @Override
     public String toString() {
