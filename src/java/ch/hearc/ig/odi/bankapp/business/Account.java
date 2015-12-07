@@ -151,10 +151,20 @@ public class Account {
         this.rate = rate;
     }
 
+    /**
+     * Permet d'obtenir le client propriétaire du compte.
+     * 
+     * @return Le propriétaire du compte.
+     */
     public Customer getCustomer() {
         return customer;
     }
 
+    /**
+     * Modifie le client propriétaire du compte par celui passé en paramètre.
+     * 
+     * @param customer  Le nouveau propriétaire du compte.
+     */
     public void setCustomer(final Customer customer) {
         this.customer = customer;
     }
