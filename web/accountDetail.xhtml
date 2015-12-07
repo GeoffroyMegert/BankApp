@@ -33,7 +33,7 @@
             </h:panelGrid>
             <br/>
             <!-- Bouton pour retourner au détail du client. -->
-            <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action="returnToCustomer"/>
+            <h:commandButton id="returnToCustomer" value="#{bundle.ReturnToCustomer}" action="#{customerDetailBean.getCustomer(accountDetailBean.account.customer)}"/>
             <br/><br/>
             <!-- Bouton pour retourner à la liste des clients. -->
             <h:commandButton id="returnHome" value="#{bundle.ReturnHome}" action="returnHome"/>

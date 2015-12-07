@@ -123,8 +123,14 @@
     <navigation-rule>
         <from-view-id>/accountDetail.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>returnToCustomer</from-outcome>
+            <from-action>#{customerDetailBean.getCustomer(accountDetailBean.account.customer)}</from-action>
+            <from-outcome>success</from-outcome>
             <to-view-id>/customerDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{customerDetailBean.getCustomer(accountDetailBean.account.customer)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/accountDetail.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>returnHome</from-outcome>
